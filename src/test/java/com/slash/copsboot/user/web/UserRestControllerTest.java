@@ -1,6 +1,7 @@
 package com.slash.copsboot.user.web;
 import com.c4_soft.springaddons.security.oauth2.test.annotations.WithJwt;
 import com.c4_soft.springaddons.security.oauth2.test.webmvc.AutoConfigureAddonsWebmvcResourceServerSecurity;
+import com.slash.copsboot.annotations.CopsbootControllerTest;
 import com.slash.copsboot.infraestructure.security.WebSecurityConfiguration;
 import com.slash.copsboot.user.*;
 import org.junit.jupiter.api.Test;
@@ -27,9 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserRestController.class)
-@AutoConfigureAddonsWebmvcResourceServerSecurity
-@Import(WebSecurityConfiguration.class)
+@CopsbootControllerTest(UserRestController.class)
 public class UserRestControllerTest {
 
     @Autowired
