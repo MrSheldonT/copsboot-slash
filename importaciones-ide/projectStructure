@@ -1,0 +1,6 @@
+libraries:
+- github.cafapi.util.flywayinstaller/com.github.cafapi.util.flywayinstaller:util-flywayinstaller:3.0.0-197
+- postgresql/org.postgresql:postgresql:42.7.5
+- springframework.restdocs.spring.mockmvc/org.springframework.restdocs:spring-restdocs-mockmvc:3.0.3
+- springframework.security.spring.test/org.springframework.security:spring-security-test:6.4.5
+- testcontainers.postgresql/org.testcontainers:postgresql:1.17.3

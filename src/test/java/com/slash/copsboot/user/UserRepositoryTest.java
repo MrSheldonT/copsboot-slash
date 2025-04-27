@@ -1,12 +1,18 @@
 package com.slash.copsboot.user;
+import com.slash.copsboot.infraestructure.security.SpringProfiles;
 import com.slash.copsboot.orm.jpa.InMemoryUniqueIdGenerator;
 import com.slash.copsboot.orm.jpa.UniqueIdGenerator;
-import com.slash.copsboot.orm.jpa.UniqueIdGenerator;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.HashSet;
 import java.util.UUID;
@@ -15,9 +21,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@ActiveProfiles(SpringProfiles.REPOSITORY_TEST)
 public class UserRepositoryTest {
     @Autowired
     private UserRepository repository;
+    @Qualifier("jdbcTemplate")
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Test
     public void testStoreuser() {
@@ -31,8 +44,11 @@ public class UserRepositoryTest {
 
         assertThat(user).isNotNull();
 
-        assertThat(user).isNotNull();
         assertThat(repository.count()).isEqualTo(1L);
+        entityManager.flush();
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM copsboot_user", Long.class)).isEqualTo(1L);
+        assertThat(jdbcTemplate.queryForObject("SELECT email FROM copsboot_user", String.class)).isEqualTo(
+                "slash@shelldon.uv");
     }
 
     @TestConfiguration
