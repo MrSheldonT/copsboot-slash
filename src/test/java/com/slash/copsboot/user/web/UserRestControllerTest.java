@@ -81,4 +81,21 @@ public class UserRestControllerTest {
                 .andExpect(status().isForbidden());
     }
 
+    @Test
+    void givenEmptyMobileToken_badRequestIsReturned() throws Exception {
+        mockMvc.perform(post("/api/users")
+                        .with(jwt().jwt(builder -> builder.subject(UUID.randomUUID().toString()))
+                                .authorities(new SimpleGrantedAuthority("ROLE_OFFICER")))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                    "mobileToken": ""
+                                }
+                                """))
+                .andExpect(status().isBadRequest())
+                .andDo(print());
+
+        verify(userService, never()).createUser(any(CreateUserParameters.class));
+    }
+
 }
