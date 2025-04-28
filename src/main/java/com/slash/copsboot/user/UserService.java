@@ -17,6 +17,7 @@ public class UserService {
     }
 
     public User createUser(CreateUserParameters createUserParameters) {
+
         UserId userId = repository.nextId();
         User user = new User(userId, createUserParameters.email(),
                 createUserParameters.authServerId(),
@@ -27,5 +28,9 @@ public class UserService {
     public User getUserById(UserId userId) {
         return repository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
+    }
+
+    public Optional<User> findUserByMobileToken(String mobileToken) {
+        return repository.findByMobileToken(mobileToken);
     }
 }

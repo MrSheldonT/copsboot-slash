@@ -7,4 +7,6 @@ import java.util.UUID;
 
 public interface UserRepository extends CrudRepository<User, UserId>, UserRepositoryCustom {
     Optional<User> findByAuthServerId(AuthServerId authServerId);
+    Optional<User> findByMobileToken(String mobileToken);
+
 }
