@@ -1,6 +1,6 @@
 package com.slash.copsboot.user;
 
-import com.slash.copsboot.orm.jpa.AbstractEntity;
+import com.slash.orm.jpa.AbstractEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 

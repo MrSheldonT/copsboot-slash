@@ -1,13 +1,12 @@
-package com.slash.copsboot.orm.jpa;
+package com.slash.orm.jpa;
 
 import com.google.common.base.Objects;
-import com.slash.copsboot.util.ArtifactForFramework;
+import com.slash.util.ArtifactForFramework;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.MappedSuperclass;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
 import static com.google.common.base.Preconditions.checkNotNull;
-import java.io.Serializable;
 
 @MappedSuperclass
 public abstract class AbstractEntity<T extends EntityId> implements Entity<T> {

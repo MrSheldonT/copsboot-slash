@@ -1,4 +1,5 @@
-package com.slash.copsboot.infraestructure.security;
+package com.slash.copsboot.infrastructure;
+
 
 public final class SpringProfiles {
     public static final String REPOSITORY_TEST = "repository-test";

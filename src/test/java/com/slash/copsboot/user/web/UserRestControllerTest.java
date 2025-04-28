@@ -1,24 +1,17 @@
 package com.slash.copsboot.user.web;
-import com.c4_soft.springaddons.security.oauth2.test.annotations.WithJwt;
-import com.c4_soft.springaddons.security.oauth2.test.webmvc.AutoConfigureAddonsWebmvcResourceServerSecurity;
-import com.slash.copsboot.annotations.CopsbootControllerTest;
-import com.slash.copsboot.infraestructure.security.WebSecurityConfiguration;
+import com.slash.copsboot.insfrastructure.test.CopsbootControllerTest;
 import com.slash.copsboot.user.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.security.test.web.servlet.request

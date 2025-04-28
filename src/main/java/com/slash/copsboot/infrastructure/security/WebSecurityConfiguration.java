@@ -1,8 +1,7 @@
-package com.slash.copsboot.infraestructure.security;
+package com.slash.copsboot.infrastructure.security;
 
 
 import com.c4_soft.springaddons.security.oidc.starter.synchronised.resourceserver.ResourceServerExpressionInterceptUrlRegistryPostProcessor;
-import jakarta.persistence.Converter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

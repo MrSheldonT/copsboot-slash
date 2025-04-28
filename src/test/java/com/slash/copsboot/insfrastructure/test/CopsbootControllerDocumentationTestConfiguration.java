@@ -1,4 +1,4 @@
-package com.slash.copsboot.documentation;
+package com.slash.copsboot.insfrastructure.test;
 
 import org.springframework.boot.test.autoconfigure.restdocs.RestDocsMockMvcConfigurationCustomizer;
 import org.springframework.boot.test.context.TestConfiguration;

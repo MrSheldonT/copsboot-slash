@@ -1,6 +1,6 @@
 package com.slash.copsboot.user;
 
-import com.slash.copsboot.orm.jpa.AbstractEntityId;
+import com.slash.orm.jpa.AbstractEntityId;
 
 import java.util.UUID;
 

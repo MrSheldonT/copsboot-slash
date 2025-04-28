@@ -1,7 +1,7 @@
 package com.slash.copsboot.user;
-import com.slash.copsboot.infraestructure.security.SpringProfiles;
-import com.slash.copsboot.orm.jpa.InMemoryUniqueIdGenerator;
-import com.slash.copsboot.orm.jpa.UniqueIdGenerator;
+import com.slash.copsboot.infrastructure.SpringProfiles;
+import com.slash.orm.jpa.InMemoryUniqueIdGenerator;
+import com.slash.orm.jpa.UniqueIdGenerator;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.util.HashSet;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles(SpringProfiles.REPOSITORY_TEST)
 public class UserRepositoryTest {
+
     @Autowired
     private UserRepository repository;
     @Qualifier("jdbcTemplate")
@@ -33,10 +33,8 @@ public class UserRepositoryTest {
     private EntityManager entityManager;
 
     @Test
-    public void testStoreuser() {
-        HashSet<UserRole> roles = new HashSet<>();
+    public void testStoreUser() {
 
-        roles.add(UserRole.OFFICER);
         User user = repository.save(new User(repository.nextId(),
                                         "slash@shelldon.uv",
                                         new AuthServerId(UUID.randomUUID()),
@@ -56,6 +54,11 @@ public class UserRepositoryTest {
         @Bean
         public UniqueIdGenerator<UUID> generator() {
             return new InMemoryUniqueIdGenerator();
+        }
+
+        @Bean
+        public UserRepositoryCustom userRepositoryCustom(UniqueIdGenerator<UUID> generator) {
+            return new UserRepositoryImpl(generator);
         }
     }
 }

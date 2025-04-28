@@ -1,7 +1,7 @@
 package com.slash.copsboot;
 
-import com.slash.copsboot.orm.jpa.InMemoryUniqueIdGenerator;
-import com.slash.copsboot.orm.jpa.UniqueIdGenerator;
+import com.slash.orm.jpa.InMemoryUniqueIdGenerator;
+import com.slash.orm.jpa.UniqueIdGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

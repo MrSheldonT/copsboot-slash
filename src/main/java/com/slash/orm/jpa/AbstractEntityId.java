@@ -1,6 +1,5 @@
-package com.slash.copsboot.orm.jpa;
-import com.slash.copsboot.util.ArtifactForFramework;
-import jakarta.persistence.Entity;
+package com.slash.orm.jpa;
+import com.slash.util.ArtifactForFramework;
 import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;

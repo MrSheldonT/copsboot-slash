@@ -1,36 +1,17 @@
-package com.slash.copsboot.documentation;
+package com.slash.copsboot.user.web;
 
-import com.c4_soft.springaddons.security.oauth2.test.webmvc.AutoConfigureAddonsWebmvcResourceServerSecurity;
-import com.slash.copsboot.annotations.CopsbootControllerDocumentationTest;
-import com.slash.copsboot.annotations.CopsbootControllerTest;
-import com.slash.copsboot.infraestructure.security.WebSecurityConfiguration;
+import com.slash.copsboot.insfrastructure.test.CopsbootControllerDocumentationTest;
 import com.slash.copsboot.user.*;
-import com.slash.copsboot.user.web.CreateUserRequest;
-import com.slash.copsboot.user.web.UserDto;
-import com.slash.copsboot.user.web.UserRestController;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.restdocs.RestDocsMockMvcConfigurationCustomizer;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.RestDocumentationExtension;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.UUID;
 

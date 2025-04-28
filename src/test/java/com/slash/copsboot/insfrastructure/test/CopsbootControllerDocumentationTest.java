@@ -1,6 +1,5 @@
-package com.slash.copsboot.annotations;
+package com.slash.copsboot.insfrastructure.test;
 
-import com.slash.copsboot.documentation.CopsbootControllerDocumentationTestConfiguration;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

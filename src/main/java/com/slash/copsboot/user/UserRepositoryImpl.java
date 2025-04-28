@@ -1,5 +1,5 @@
 package com.slash.copsboot.user;
-import com.slash.copsboot.orm.jpa.UniqueIdGenerator;
+import com.slash.orm.jpa.UniqueIdGenerator;
 
 import java.util.UUID;
 

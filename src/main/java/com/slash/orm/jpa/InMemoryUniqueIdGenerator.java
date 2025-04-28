@@ -1,4 +1,4 @@
-package com.slash.copsboot.orm.jpa;
+package com.slash.orm.jpa;
 
 import java.util.UUID;
 

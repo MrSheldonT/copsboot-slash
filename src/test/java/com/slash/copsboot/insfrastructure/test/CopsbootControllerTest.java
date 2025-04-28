@@ -1,7 +1,7 @@
-package com.slash.copsboot.annotations;
+package com.slash.copsboot.insfrastructure.test;
 
 import com.c4_soft.springaddons.security.oauth2.test.webmvc.AutoConfigureAddonsWebmvcResourceServerSecurity;
-import com.slash.copsboot.infraestructure.security.WebSecurityConfiguration;
+import com.slash.copsboot.infrastructure.security.WebSecurityConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.AliasFor;
