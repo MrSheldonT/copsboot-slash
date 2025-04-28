@@ -23,4 +23,9 @@ public class UserService {
                 createUserParameters.mobileToken());
         return repository.save(user);
     }
+
+    public User getUserById(UserId userId) {
+        return repository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+    }
 }

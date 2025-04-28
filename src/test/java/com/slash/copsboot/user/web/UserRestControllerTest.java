@@ -67,7 +67,10 @@ public class UserRestControllerTest {
                 .andExpect(jsonPath("authServerId").value("eaa8b8a5-a264-48be-98de-d8b4ae2750ac"));
     }
 
-
+    /*
+    Para este test hay algo curioso, el mapping en el RestController lanza excepción cada que no se asigna un rol, es decir al final
+    ejecuta un 500, por lo que se realizó la clase GlobalExceptionHandle para poder hacer que este test funcione :)
+     */
     @Test
     void givenAuthenticatedUserThatIsNotAnOfficer_forbiddenIsReturned() throws Exception {
         mockMvc.perform(post("/api/users")
@@ -78,7 +81,7 @@ public class UserRestControllerTest {
                                     "mobileToken": "c41536a5a8b9d3f14a7e5472a5322b5e1f76a6e7a9255c2c2e7e0d3a2c5b9d0"
                                 }
                                 """))
-                .andExpect(status().isForbidden()); // <- extensión del unit test
+                .andExpect(status().isForbidden());
     }
 
     @Test
@@ -97,6 +100,7 @@ public class UserRestControllerTest {
                 .andExpect(status().isBadRequest())
                 .andDo(print())
                 .andExpect(jsonPath("errors[0].fieldName").value("mobileToken"));
+                // <- extensión del unit test
 
         verify(userService, never()).createUser(any(CreateUserParameters.class));
     }
