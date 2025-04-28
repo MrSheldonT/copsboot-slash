@@ -17,7 +17,7 @@ public class ReportDescriptionValidatorTest {
         try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory()) {
             Validator validator = factory.getValidator();
 
-            CreateReportRequest parameters = new CreateReportRequest(Instant.now(), ""); // notblank
+            CreateReportRequest parameters = new CreateReportRequest(Instant.now(), "", false, 0); // notblank
             Set<ConstraintViolation<CreateReportRequest>> violationSet = validator.validate(parameters);
             assertThat(violationSet).hasViolationOnPath("description");
         }
@@ -29,7 +29,7 @@ public class ReportDescriptionValidatorTest {
             Validator validator = factory.getValidator();
 
             CreateReportRequest parameters = new CreateReportRequest(Instant.now(),
-                    "The suspect was wearing a black hat.");
+                    "The suspect was wearing a black hat.", false, 0);
             Set<ConstraintViolation<CreateReportRequest>> violationSet = validator.validate(parameters);
             assertThat(violationSet).hasNoViolations();
         }
