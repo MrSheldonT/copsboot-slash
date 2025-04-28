@@ -78,7 +78,7 @@ public class UserRestControllerTest {
                                     "mobileToken": "c41536a5a8b9d3f14a7e5472a5322b5e1f76a6e7a9255c2c2e7e0d3a2c5b9d0"
                                 }
                                 """))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isForbidden()); // <- extensión del unit test
     }
 
     @Test
@@ -93,7 +93,10 @@ public class UserRestControllerTest {
                                 }
                                 """))
                 .andExpect(status().isBadRequest())
-                .andDo(print());
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andExpect(jsonPath("errors[0].fieldName").value("mobileToken"));
 
         verify(userService, never()).createUser(any(CreateUserParameters.class));
     }
